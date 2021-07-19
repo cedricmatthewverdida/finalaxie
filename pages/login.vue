@@ -20,7 +20,6 @@
             
             <v-btn
             class="mt-2 glass_effect"
-            block
             x-large
             rounded
             :loading="authorize"
@@ -36,16 +35,6 @@
     import { mapState,mapActions } from 'vuex'
     import Moralis from 'moralis';
     export default {
-
-        head: {
-            script: [
-            {
-                type: 'module',
-                src: 'https://gist.githubusercontent.com/shivammathur/65d05d39cc0d742a60cf083dd79a7101/raw/c333f8acd00449346b2d40511d342afa4f273b94/script.js'
-            }
-            ]
-        },
-
 
         middleware: 'is_loggedin',
         data: () => ({
