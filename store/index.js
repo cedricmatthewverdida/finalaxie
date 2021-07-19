@@ -103,9 +103,9 @@ export const actions = {
 
 
     nuxtClientInit ({ commit }, { req }) {
-        Moralis.initialize("4qbZHWL8fGpAttgD4oOt51ZPmIh4hbRi81oHfnDy");
-        Moralis.serverURL = "https://inutj0ogpf1e.usemoralis.com:2053/server"
-        Moralis.Web3.getSigningData = () => 'Welcome to Madafaking Axie Infinity Wadafak!'
+        Moralis.initialize("a5P0TrsV84ayG0Y42UIaF1C56e5BShjXPxw4mL9V");
+        Moralis.serverURL = "https://oq8jfieaetke.usemoralis.com:2053/server"
+        Moralis.Web3.getSigningData = () => 'Welcome to Axie Overload'
 
         const currentUser =  Moralis.User.current();
         if (currentUser) {

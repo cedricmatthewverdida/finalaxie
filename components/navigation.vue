@@ -162,7 +162,7 @@
             miniVariant: true,
             right: false,
             rightDrawer: false,
-            title: 'Yawa'
+            title: 'Axie Overload'
             }
         },
         filters:{
