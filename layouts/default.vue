@@ -41,7 +41,7 @@ export default {
 
       async load_eth_balance(){
         if(this.user.length != 0){
-          window.web3 = await Moralis.Web3.enable();
+          const web3 = await Moralis.Web3.enable();
           const balances =  await Moralis.Web3.getERC20();
           let currentBalance = web3.utils.fromWei(balances.balance, 'ether')
           this.yawa = currentBalance
