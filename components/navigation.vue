@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="px-2">
-                         <span class="caption">Axie Points</span>: 
+                         <span class="caption">Balance</span>: 
                          <small class="overline">{{pointbalance | truncate_balance}}</small>
                     </div>
 

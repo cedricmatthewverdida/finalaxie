@@ -9,14 +9,18 @@
     import { mapState } from 'vuex'
     export default {
         computed:{
-            ...mapState(['user'])
+            ...mapState(['pointbalance'])
+        },
+        methods:{
+            async addFund(){
+                const user = await Moralis.User.current();
+                let addFunds = this.pointbalance + 1;
+                user.set("balance",3)
+                user.save()
+            }
         },
         mounted(){
-            // const currentUser =  Moralis.User.current();
-            // let addFunds = this.pointbalance + 1;
-            // currentUser.set("balance",1)
-            // currentUser.save()
-            console.log(this.user);
+            this.addFund()
         }
     }
 </script>
