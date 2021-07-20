@@ -3,7 +3,8 @@ import _ from 'lodash';
 export const state = () => ({
     user:[],
     mainETH: '0x462644A84F5CFEac3E63DF5E6F43a37adb4098F7',
-    userETH: '',
+    userETH: undefined,
+    roninaddress: undefined,
     cart: [
        
     ],
@@ -85,6 +86,10 @@ export const mutations = {
     set_cart(state,cart){
         return state.cart = cart;
     },
+
+    set_ronin(state,roninaddress){
+        return state.roninaddress = roninaddress;
+    },
 }
 
 export const actions = {
@@ -93,6 +98,7 @@ export const actions = {
         const currentUser =  Moralis.User.current();
         if (currentUser) {
            commit('authorize_loggin', currentUser)
+           commit('set_ronin', currentUser.attributes.roninwallet)
            commit('lock_eth', currentUser.attributes.authData.moralisEth.id)
            commit('set_balance', currentUser.attributes.balance)
            let cart = currentUser.attributes.cart == undefined ? [] : currentUser.attributes.cart;
@@ -108,11 +114,13 @@ export const actions = {
 
         const currentUser =  Moralis.User.current();
         if (currentUser) {
+
            commit('authorize_loggin', currentUser)
+           commit('set_ronin', currentUser.attributes.roninwallet)
            commit('lock_eth', currentUser.attributes.authData.moralisEth.id)
-        //    commit('set_balance', currentUser.attributes.balance)
-        //    let cart = currentUser.attributes.cart == undefined ? [] : currentUser.attributes.cart;
-        //    commit('set_cart', cart)
+           commit('set_balance', currentUser.attributes.balance)
+           let cart = currentUser.attributes.cart == undefined ? [] : currentUser.attributes.cart;
+           commit('set_cart', cart)
         }
         
     }

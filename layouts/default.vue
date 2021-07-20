@@ -7,6 +7,60 @@
     </v-main>
 
 
+    
+
+    <!-- Rarity -->
+        <v-bottom-sheet
+        v-model="isSet"
+        inset
+        persistent
+        >
+        <v-card
+            class="text-center"
+            height="200px"
+            shaped
+            color="#11131B"
+        >
+
+        <v-card-title>
+          Ronin Wallet Address
+          <v-spacer></v-spacer>
+          <v-btn
+          small
+          rounded
+          color="red"
+          @click="save_ronin_address()"
+          >
+            Save
+          </v-btn>
+        </v-card-title>
+    
+            <v-container class="pa-5">
+                
+                
+
+                <v-text-field
+                  v-model="ronin"
+                  label="RONIN ADDRESS"
+                  placeholder="Enter your wallet address"
+                  required
+                  filled
+                  class="mb-3 glasseffect"
+                  rounded
+                  type="text"
+                  hide
+                  hide-details="auto"
+                ></v-text-field>
+
+                <small>Make sure your Ronin address starts with "ronin:". Copy paste it from your Ronin wallet.</small>
+
+
+            </v-container>
+
+
+        </v-card>
+        </v-bottom-sheet>
+        <!-- Rarity -->
 
   </v-app>
 </template>
@@ -21,23 +75,35 @@ export default {
   },
   data () {
       return {
-        yawa: 0
+        yawa: 0,
+        ronin: ''
       }
   },
   computed:{
     ...mapState(
         [
           'user',
-          'userETH'
+          'userETH',
+          'roninaddress'
         ]
-      )
+      ),
+    isSet : function (){
+      return this.roninaddress == undefined ? true : false
+    }
   },
 
   methods:{
 
       ...mapActions(['currentUser']),
 
-      ...mapMutations(['lock_eth','set_ethbalance']),
+      ...mapMutations(['lock_eth','set_ethbalance','set_ronin']),
+
+      async save_ronin_address () {
+          const user = await Moralis.User.current();
+          this.set_ronin(this.ronin)
+          user.set("roninwallet",this.ronin)
+          user.save()
+      },
 
       async load_eth_balance(){
         if(this.user.length != 0){
@@ -52,6 +118,7 @@ export default {
   mounted(){
       this.load_eth_balance();
       this.set_ethbalance(this.yawa);
+
   }
 }
 </script>
