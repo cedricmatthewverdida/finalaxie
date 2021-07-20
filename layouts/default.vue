@@ -88,7 +88,7 @@ export default {
         ]
       ),
     isSet : function (){
-      return this.roninaddress == undefined ? true : false
+      return this.roninaddress == undefined  && this.user.length != 0? true : false
     }
   },
 
