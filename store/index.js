@@ -2,7 +2,7 @@ import Moralis from 'moralis';
 import _ from 'lodash';
 export const state = () => ({
     user:[],
-    mainETH: '0x462644A84F5CFEac3E63DF5E6F43a37adb4098F7',
+    mainETH: '0x834C86cf651379B7d6269e37c78e1DbB5c3DCDf4',
     userETH: undefined,
     roninaddress: undefined,
     cart: [
