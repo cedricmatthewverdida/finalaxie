@@ -7,7 +7,7 @@
         v-if="user.length != 0"
         v-model="drawer"
         clipped
-        color="transparent"
+        color="#232634"
         app
     >
 
