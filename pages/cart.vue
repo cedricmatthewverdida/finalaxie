@@ -18,7 +18,7 @@
             width="200"
             height="200"
             >
-            <v-img
+            <v-img  v-if="cart.length == 0"
             :src="require('@/assets/Intro1@2x.png')"
             :lazy-src="require('@/assets/Intro1@2x.png')"
         
