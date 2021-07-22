@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div style="background-image: url('https://i.pinimg.com/originals/79/92/ab/7992ab31c4b79324cf2275ac5bd06692.gif');
+    background-position: center;">
        
         <v-container v-if="cart.length != 0">
         <Anounce color="#11131B" :highlight="cart.length" icon="mdi-cart-minus"/>
@@ -8,7 +9,21 @@
         <v-container v-else style="margin-top:150px">
             <div class="text-center"
             >
-                <h1 class="Design">Cart is Empty</h1>
+                <h1 class="Design" style="font-family: 'Zen Loop', cursive;">Cart is Empty</h1>
+            </div>
+            <div class="d-flex justify-center">
+            <v-sheet
+            
+            color="transparent"
+            width="200"
+            height="200"
+            >
+            <v-img
+            :src="require('@/assets/Intro1@2x.png')"
+            :lazy-src="require('@/assets/Intro1@2x.png')"
+        
+            ></v-img>
+            </v-sheet>
             </div>
         </v-container>
     </div>
@@ -30,7 +45,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap');
 .Design{
     color: mix(#fff, #11131B, 85%);
 	font-size: calc(1em + 5vw) ;  

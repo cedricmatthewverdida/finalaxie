@@ -26,7 +26,8 @@
                 x-large
                 rounded
                 block
-                color="primary"
+                outlined
+                color="white"
                 :loading="authorize"
                 @click="loginMetamask()"
                 

@@ -7,12 +7,12 @@
         v-if="user.length != 0"
         v-model="drawer"
         clipped
-        color="#232634"
+        color="transparent"
         app
     >
 
         <v-container>
-            <v-card color="#232634" >
+            <v-card outlined color="transparent" >
                 <v-card-title class="justify-center">Account</v-card-title>
                 <v-card-subtitle class="caption">{{user.id}}</v-card-subtitle>
                 <v-card-text>
@@ -91,7 +91,7 @@
 
         <template v-slot:extension class="d-flex justify-center">
             
-            <v-tabs  align-with-title v-model="activeTab">
+            <v-tabs color="primary" align-with-title v-model="activeTab">
                 <v-tab v-for="tab in routes" :key="tab.id" :to="tab.link">
                      <v-icon small class="mr-1">{{tab.icon}}</v-icon>
                     {{ tab.title }}

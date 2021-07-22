@@ -542,7 +542,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .glasseffect{
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -552,5 +552,13 @@
 }
 
 
+.theme--dark.v-pagination .v-pagination__item {
+        background: #11131B;
+        background-color: #11131B;
+    color: #FFFFFF;
+}
 
+.theme--dark.v-pagination .v-pagination__navigation {
+    background: #11131B;
+}
 </style>
