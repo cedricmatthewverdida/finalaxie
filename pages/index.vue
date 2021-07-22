@@ -42,7 +42,7 @@
             v-model="currentPage"
             :length="pagination"
             style="color:#000"
-            :total-visible="7"
+            :total-visible="5"
             ></v-pagination>
         </v-container>
         
