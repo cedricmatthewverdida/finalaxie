@@ -1,10 +1,6 @@
 <template>
     <div>
-        <v-img
-        :src="require('@/assets/Arena-fg.png')"
-        :lazy-src="require('@/assets/Arena-fg.png')"
-    
-        >
+       
         <v-container v-if="cart.length != 0">
         <Anounce color="#11131B" :highlight="cart.length" icon="mdi-cart-minus"/>
         <Cart/>
@@ -15,7 +11,6 @@
                 <h1 class="Design">Cart is Empty</h1>
             </div>
         </v-container>
-        </v-img>
     </div>
 </template>
 
@@ -38,7 +33,7 @@
 <style lang="scss" scoped>
 .Design{
     color: mix(#fff, #11131B, 85%);
-	font-size: calc(1em + 10vw) ;  
+	font-size: calc(1em + 5vw) ;  
 	font-weight: 900;
 	text-shadow: 
 		-0.0075em 0.0075em 0 mix(#fff, #11131B, 94%),

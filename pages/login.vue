@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-top:100px">
+    <div style="margin-top:150px">
         <div  class="d-flex justify-center">
             <v-sheet width="100px" color="transparent">
             
@@ -18,14 +18,22 @@
 
             <small >Please connect Metamask to get started</small>
             
-            <v-btn
-            class="mt-2 glass_effect"
-            x-large
-            rounded
-            :loading="authorize"
-            @click="loginMetamask()"
             
-            >Connect metamask</v-btn>
+
+            <v-container>
+                <v-btn
+                class="mt-2"
+                x-large
+                rounded
+                block
+                color="primary"
+                :loading="authorize"
+                @click="loginMetamask()"
+                
+                >
+                <v-icon>mdi-ethereum</v-icon>
+                Connect metamask</v-btn>
+            </v-container>
             </v-sheet>
         </div>
     </div>

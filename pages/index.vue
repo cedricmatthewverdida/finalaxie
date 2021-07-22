@@ -31,17 +31,20 @@
                     </div>
             <h1 v-if="axie.length != 0">{{axie.axies.total}} Axies</h1>
         </v-container>
-        <Axie v-if="axie.length != 0" :axielist="axie" :price="price"/>
+        <Axie v-if="axie.length != 0" :axielist="axie" :price="price" :loading="preloads"/>
         <Loads v-if="axie.length == 0" style="margin-top:100px" />
 
-        <v-pagination
-        class="mb-5 mt-5"
-        v-if="pagination != 0"
-        v-model="currentPage"
-        :length="pagination"
-        :total-visible="4"
-        
-        ></v-pagination>
+
+        <v-container>
+            <v-pagination
+            class="mb-5 mt-5"
+            v-if="pagination != 0"
+            v-model="currentPage"
+            :length="pagination"
+            style="color:#000"
+            :total-visible="7"
+            ></v-pagination>
+        </v-container>
         
 
 
@@ -258,6 +261,7 @@
         },
         data: () => ({
             Clear: false,
+            preloads: false,
             page:24,
             currentPage:1,
             axie: [],
@@ -455,7 +459,7 @@
         load_axies: _.debounce(async function(){
             
             if(this.Clear == false){
-            this.axie = []
+            this.preloads = true;
             const response = await this.$axios.post('https://axieinfinity.com/graphql-server-v2/graphql',
                 {
                 "operationName":"GetAxieBriefList",
@@ -498,6 +502,7 @@
             const store = await response.data;
             
             this.axie = store.data
+            this.preloads = false;
             }
             
           },1000)
@@ -545,6 +550,7 @@
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
 }
+
 
 
 </style>

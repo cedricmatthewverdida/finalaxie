@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <v-container class="pa-4 text-center" v-if="axielist.length != 0">
             <v-row
             class="fill-height"
@@ -13,15 +14,15 @@
                 cols="12"
                 md="4"
                 sm="4"
-                lg="4"
-                xl="4"
+                lg="3"
+                xl="3"
                 >
                 <v-hover v-slot="{ hover }" style="cursor:pointer" >
                     <v-card
                     :elevation="hover ? 12 : 2"
                     class="glasseffect"
                     :loading="price.length == 0"
-                    :disabled="item.auction == null"
+                    :disabled="item.auction == null || loading"
                     @click="()=> {
                         show = true
                         load_axies(item.id,convert_usd_to_weth(item.auction.currentPriceUSD))
@@ -33,7 +34,7 @@
                                <v-chip
                                 pill
                                 dark
-                                x-small
+                                small
                                 :color="coloraxie(item.class)"
                                 class="text-truncate"
                                 >
@@ -277,7 +278,8 @@
         },
         props:{
             axielist:Object,
-            price:Array
+            price:Array,
+            loading:Boolean,
         },
         data: () => ({
             open:false,
