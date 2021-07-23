@@ -542,7 +542,7 @@
     }
 </script>
 
-<style lang="scss">
+<style>
 .glasseffect{
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
